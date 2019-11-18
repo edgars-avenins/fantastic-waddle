@@ -37,3 +37,4 @@ export default function sketch(p){
       }
     }
 }
+//when certain side size is reached add in a new rect, figure out how to add to arr

@@ -7,9 +7,9 @@
   "author": "EDA",
   "license": "ISC",
   "scripts": {
-    "start"        : "npm-run-all --parallel watch:server watch:build",
-    "watch:build"  : "webpack --watch",
-    "watch:server" : "nodemon --watch"
+    "start": "npm-run-all --parallel watch:server watch:build",
+    "watch:build": "webpack --watch",
+    "watch:server": "nodemon --watch"
   },
   "babel": {
     "presets": [
