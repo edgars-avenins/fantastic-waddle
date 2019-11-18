@@ -19,21 +19,12 @@ export default function sketch(p){
     
     p.myCustomRedrawAccordingToNewPropsHandler = (newProps) => {
       if(canvas) //Make sure the canvas has been created
-      p.fill(newProps.color);
-
-      if(newProps.squareSideSize < height + 100){
-        p.draw = () => {
-          p.background('orangered');
-          p.translate(width / 2, height / 2)
-          p.rotate(newProps.angle)
-          p.rectMode(p.CENTER)
-          p.rect(0,0, newProps.squareSideSize, newProps.squareSideSize)
-          // if(true){
-          //   console.log(p.second())
-          // }
-          }
-      }else{
-        
+      p.background('red')
+      p.draw = () => {
+        p.fill('green')
+//understand reacts role in this
+        p.translate(p.mouseX, p.mouseY)
+        p.rect(100, 100, 100, 100)
       }
     }
 }
