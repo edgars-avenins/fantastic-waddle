@@ -7,7 +7,10 @@ class App extends React.Component {
     super(props)
 
     this.state ={
-      color: 'red'
+      color: 'green',
+      size: 25,
+      angle: 0,
+      otherAngle: 0
     }
   }
 
@@ -17,11 +20,30 @@ class App extends React.Component {
     })
   }
 
+  componentDidMount(){
+    setInterval(() => {
+      this.growSquare()
+    }, 100)
+  }
+
+  growSquare = () => {
+    // let newSize = this.state.size
+    // newSize += 1
+    // console.log(newSize)
+    this.setState({
+      size: this.state.size += 1,
+      angle: this.state.angle += 1,
+      otherAngle: this.state.otherAngle += 10
+    })
+    if(this.state.angle % 5 === 0) this.randomColor()
+  }
+  //push them into an array and update accordingly
   render(){
     return (
        <div>
         <button onClick={this.randomColor}>Random Color</button>
-        <P5Wrapper sketch={sketch} color={this.state.color}/>
+        <P5Wrapper id={0} sketch={sketch} color={this.state.color} squareSideSize={this.state.size} angle={this.state.otherAngle}/>
+        <P5Wrapper id={1} sketch={sketch} color={this.state.color} squareSideSize={this.state.size} angle={this.state.angle}/>
       </div>
     )
   }
