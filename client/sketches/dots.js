@@ -16,7 +16,7 @@ export default function sketch(p){
       p.frameRate(30)
       pauseButton()
       img = p.loadImage('https://images.unsplash.com/photo-1528746966523-1fc12935916e?ixlib=rb-1.2.1&auto=format&fit=crop&w=1350&q=80')
-      
+
       slider = p.createSlider(1,1.05,1,0.0001)
       slider.position(100,20)
       slider.style('width', '80px')
@@ -32,9 +32,9 @@ export default function sketch(p){
       p.draw = () => {
         p.clear()
         p.image(img,0,0,width,height)
+      
         multi = slider.value()
         //understand reacts role in this
-
         //
         p.push()
         let mercury = new Circle(80,80,8, width/2,height/2,'#947676')
@@ -87,7 +87,12 @@ export default function sketch(p){
 
 
         angle = multi * angle + 0.1
+        
       }
+    }
+
+    function getSpins(angle){
+      return p.floor(angle / 90)
     }
 
     function pauseButton(){
